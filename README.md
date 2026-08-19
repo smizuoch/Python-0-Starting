@@ -38,3 +38,32 @@ uv run python ex00/Hello.py
 {'Hello', 'Tokyo!'}
 {'Hello': '42Tokyo!'}
 ```
+
+## Exercise 01: First Use of Package
+
+`ex01`では、Pythonの標準ライブラリを使って現在の時刻と日付を取得し、指定された形式で表示します。
+
+提出するファイルは`ex01/format_ft_time.py`です。
+
+### 処理内容
+
+- `time.time()`は、1970年1月1日から現在までに経過した秒数を取得します。この値をUnix時間と呼びます。
+- `{seconds:,.4f}`は、秒数を3桁ごとのカンマ区切り、小数点以下4桁で表示します。
+- `{seconds:.2e}`は、秒数を`1.79e+09`のような科学表記で表示します。
+- `datetime.datetime.now()`は、現在の日時を取得します。
+- `strftime("%b %d %Y")`は、日付を`Aug 19 2026`のような「英語の月名・日・西暦」の形式に変換します。
+
+取得するのは現在の時刻なので、実行するたびに秒数が変わり、日付も実行日のものになります。
+
+### 実行方法
+
+```sh
+uv run python ex01/format_ft_time.py
+```
+
+出力は次のような形式になります。数値と日付は実行時点によって異なります。
+
+```text
+Seconds since January 1, 1970: 1,787,000,000.1234 or 1.79e+09 in scientific notation
+Aug 19 2026
+```
