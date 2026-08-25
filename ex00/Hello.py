@@ -7,7 +7,7 @@ ft_list[1] = "World!"
 ft_tuple = ("Hello", "Japan!")
 ft_set.remove("tutu!")
 ft_set.add("Tokyo!")
-ft_dict["Hello"] = "42 Tokyo!"
+ft_dict["Hello"] = "42Tokyo!"
 
 print(ft_list)
 print(ft_tuple)
