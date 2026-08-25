@@ -149,3 +149,39 @@ Fake: False <class 'bool'>
 Type not Found
 1
 ```
+
+## Exercise 04: The Even and the Odd
+
+`ex04`では、コマンドライン引数として受け取った整数が偶数か奇数かを判定します。
+
+提出するファイルは`ex04/whatis.py`です。
+
+### 処理内容
+
+- 引数がない場合は、何も表示せず終了します。
+- 引数が整数の場合は、`2`で割った余りを使って偶数か奇数かを判定します。
+- 引数が整数に変換できない場合は、`AssertionError: argument is not an integer`と表示します。
+- 引数が2つ以上ある場合は、`AssertionError: more than one argument is provided`と表示します。
+- 想定されるエラーはプログラム内で処理するため、トレースバックは表示されません。
+
+コマンドライン引数は`sys.argv`から取得します。`sys.argv[0]`にはスクリプト名が入るため、ユーザーが指定した最初の引数は`sys.argv[1]`です。
+
+### 実行例
+
+```sh
+uv run python ex04/whatis.py 14
+uv run python ex04/whatis.py -5
+uv run python ex04/whatis.py Hi!
+```
+
+```text
+I'm Even.
+I'm Odd.
+AssertionError: argument is not an integer
+```
+
+用意したテストは、次のコマンドで実行できます。
+
+```sh
+uv run python ex04/tester.py
+```
