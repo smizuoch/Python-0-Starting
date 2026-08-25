@@ -356,3 +356,47 @@ uv run python ex08/tester.py
 ```
 
 成功すると`All tests passed.`と表示されます。
+
+## Exercise 09: My First Package Creation
+
+`ex09`では、自作関数をほかのプロジェクトからimportできるPythonパッケージとして構成し、ソース配布物とwheelを作成します。
+
+パッケージ名は`ft_package`、バージョンは`0.0.1`です。公開する`count_in_list(values, target)`は、リスト内にtargetと同じ値がいくつあるかを返します。
+
+### パッケージの構成
+
+- `ft_package/__init__.py`: `count_in_list`を定義し、パッケージの公開APIにします。
+- `pyproject.toml`: 名前、バージョン、作者、ビルド方法などを定義します。
+- `README.md`: パッケージ単体の説明書です。
+- `LICENSE`: MITライセンスを記載します。
+
+### ビルド方法
+
+```sh
+cd ex09
+uv run --with build python -m build
+```
+
+`dist`ディレクトリに次の2つが生成されます。
+
+```text
+ft_package-0.0.1.tar.gz
+ft_package-0.0.1-py3-none-any.whl
+```
+
+### インストールと確認
+
+```sh
+pip install ./dist/ft_package-0.0.1.tar.gz
+pip install ./dist/ft_package-0.0.1-py3-none-any.whl
+pip show -v ft_package
+```
+
+インストール後は次のように使用できます。
+
+```python
+from ft_package import count_in_list
+
+print(count_in_list(["toto", "tata", "toto"], "toto"))  # 2
+print(count_in_list(["toto", "tata", "toto"], "tutu"))  # 0
+```
