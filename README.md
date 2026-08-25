@@ -67,3 +67,45 @@ uv run python ex01/format_ft_time.py
 Seconds since January 1, 1970: 1,787,000,000.1234 or 1.79e+09 in scientific notation
 Aug 19 2026
 ```
+
+## Exercise 02: First Python Function
+
+`ex02`では、渡されたオブジェクトの型を指定された形式で表示し、最後に`42`を返す関数を作成します。
+
+提出するファイルは`ex02/find_ft_type.py`です。
+
+### 処理内容
+
+`all_thing_is_obj(object)`は、引数の型によって次の処理を行います。
+
+- リスト、タプル、セット、辞書の場合は、型の名前と`type()`で取得した型を表示します。
+- 文字列の場合は、文字列の内容を使って`<文字列> is in the kitchen`と型を表示します。
+- それ以外の型の場合は、`Type not found`と表示します。
+- どの型を渡した場合でも、戻り値は`42`です。
+
+このファイルには関数の定義だけが含まれているため、単体で実行しても何も表示されません。
+
+### 使用例
+
+課題文と同じテストは、次のコマンドで実行できます。
+
+```sh
+uv run python ex02/tester.py
+```
+
+```python
+from ex02.find_ft_type import all_thing_is_obj
+
+all_thing_is_obj(["Hello", "World!"])
+all_thing_is_obj("Brian")
+print(all_thing_is_obj(10))
+```
+
+出力は次のようになります。
+
+```text
+List : <class 'list'>
+Brian is in the kitchen : <class 'str'>
+Type not found
+42
+```
