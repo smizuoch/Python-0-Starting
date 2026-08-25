@@ -312,3 +312,47 @@ uv run python ex07/tester.py
 ```
 
 成功すると`All tests passed.`と表示されます。
+
+## Exercise 08: Loading
+
+`ex08`では、処理の進み具合を表示するプログレスバー`ft_tqdm`を、`yield`を使って作成します。
+
+提出するファイルは`ex08/Loading.py`です。
+
+### 処理内容
+
+`ft_tqdm(lst)`は、受け取った`range`の要素を1つずつ`yield`で返しながら、次の情報を同じ行に表示します。
+
+- 完了した割合
+- 現在位置を表すプログレスバー
+- 処理済みの要素数と全要素数
+
+表示の先頭に復帰文字`\r`を使うことで、新しい行を増やさず同じ行の内容を更新します。`flush=True`を指定して、処理中に表示がすぐ反映されるようにしています。
+
+プログレスバーの幅は`os.get_terminal_size()`で端末幅に合わせます。端末幅を取得できない実行環境では80桁を使用します。
+
+### 使用例
+
+```python
+from time import sleep
+
+from ex08.Loading import ft_tqdm
+
+for element in ft_tqdm(range(333)):
+    sleep(0.005)
+print()
+```
+
+最終的な表示は次のような形式になります。バーの幅は端末によって変わります。
+
+```text
+100%|[===============================================================>]| 333/333
+```
+
+### テスト方法
+
+```sh
+uv run python ex08/tester.py
+```
+
+成功すると`All tests passed.`と表示されます。
