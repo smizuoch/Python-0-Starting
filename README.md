@@ -180,8 +180,56 @@ I'm Odd.
 AssertionError: argument is not an integer
 ```
 
-用意したテストは、次のコマンドで実行できます。
+## Exercise 05: First Standalone Python Program
+
+`ex05`では、コマンドラインまたは標準入力から文章を受け取り、含まれている文字を種類別に数えます。入力の受け取りから結果の表示、エラー処理までを備えた、単体で動作するプログラムを作る課題です。
+
+提出するファイルは`ex05/building.py`です。
+
+### 処理内容
+
+入力された文章について、次の5種類と全文字数を表示します。
+
+- 大文字: `str.isupper()`で判定
+- 小文字: `str.islower()`で判定
+- 句読点・記号: `string.punctuation`に含まれるかで判定
+- 空白文字: `str.isspace()`で判定
+- 数字: `str.isdigit()`で判定
+- 全文字数: `len()`で取得
+
+文字ごとの判定結果を`sum()`で合計し、それぞれの文字数を求めます。
+
+### 入力方法
+
+引数を1つ指定した場合は、その引数を文章として使用します。
 
 ```sh
-uv run python ex04/tester.py
+uv run python ex05/building.py "Hello World! 42"
+```
+
+引数がない場合や空文字列の場合は、次のメッセージを表示して標準入力を読み取ります。
+
+```text
+What is the text to count?
+```
+
+macOSやLinuxでは文章を入力したあとにCtrl+Dを押すと入力を終了できます。Enterで入力した改行も1つの空白文字として数えられます。
+
+引数が2つ以上指定された場合は、プログラム内で例外を処理して次のように表示します。
+
+```text
+AssertionError: more than one argument is provided
+```
+
+### 出力例
+
+`Hello World! 42`を指定した場合の出力です。
+
+```text
+The text contains 15 characters:
+2 upper letters
+8 lower letters
+1 punctuation marks
+2 spaces
+2 digits
 ```
