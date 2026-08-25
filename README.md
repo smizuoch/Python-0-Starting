@@ -233,3 +233,41 @@ The text contains 15 characters:
 2 spaces
 2 digits
 ```
+
+## Exercise 06: Reimplementing Filter
+
+`ex06`は、組み込みの`filter()`をリスト内包表記で再実装するパートと、その関数を使って文章から一定の長さを超える単語を抽出するパートで構成されています。
+
+提出するファイルは`ex06/ft_filter.py`と`ex06/filterstring.py`です。
+
+### `ft_filter.py`
+
+`ft_filter(function, iterable)`は、iterableの各要素にfunctionを適用し、結果が真になる要素だけをリストで返します。
+
+functionに`None`を指定した場合は、要素自体が真として評価されるものだけを返します。組み込みの`filter()`は使用せず、リスト内包表記で処理します。docstringは組み込み`filter`の説明と同じ内容です。
+
+### `filterstring.py`
+
+コマンドラインから文章`S`と整数`N`を受け取り、長さが`N`より大きい単語だけをリストとして表示します。単語は空白で区切り、判定条件にはlambda式を使用します。
+
+```sh
+uv run python ex06/filterstring.py "Hello the World " 4
+```
+
+```text
+['Hello', 'World']
+```
+
+引数が2つでない場合や、第2引数を整数に変換できない場合は次のように表示します。
+
+```text
+AssertionError: the arguments are bad
+```
+
+### テスト方法
+
+```sh
+uv run python ex06/tester.py
+```
+
+成功すると`All tests passed.`と表示されます。
