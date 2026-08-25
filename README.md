@@ -109,3 +109,43 @@ Brian is in the kitchen : <class 'str'>
 Type not found
 42
 ```
+
+## Exercise 03: NULL Not Found
+
+`ex03`では、Pythonで「値がない」「空である」とみなされる代表的な値を、型と値の両方を使って判別します。
+
+提出するファイルは`ex03/NULL_not_found.py`です。
+
+### 処理内容
+
+`NULL_not_found(object)`は、次の値をそれぞれ指定された形式で表示します。
+
+- `None`を`Nothing`として表示します。
+- 浮動小数点数の`NaN`を`Cheese`として表示します。
+- 整数の`0`を`Zero`として表示します。
+- 空文字列を`Empty`として表示します。
+- 真偽値の`False`を`Fake`として表示します。
+
+対象の値を正常に判別できた場合は`0`を返します。それ以外の場合は`Type not Found`と表示し、`1`を返します。
+
+Pythonでは`False == 0`が成り立つため、値だけでなく型も確認することが重要です。また、`NaN`は自分自身とも等しくならないという性質を使って判別しています。
+
+### 実行方法
+
+課題文と同じテストは、次のコマンドで実行できます。
+
+```sh
+uv run python ex03/tester.py
+```
+
+出力は次のようになります。
+
+```text
+Nothing: None <class 'NoneType'>
+Cheese: nan <class 'float'>
+Zero: 0 <class 'int'>
+Empty: <class 'str'>
+Fake: False <class 'bool'>
+Type not Found
+1
+```
